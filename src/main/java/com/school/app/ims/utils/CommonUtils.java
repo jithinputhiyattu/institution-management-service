@@ -1,6 +1,7 @@
 package com.school.app.ims.utils;
 
 import com.google.common.hash.Hashing;
+import com.school.app.ims.domain.Address;
 
 import static com.school.app.ims.constants.Constants.HASH_INDEX_PREFIX;
 import static com.school.app.ims.constants.Constants.MAX_HASH_RANGE;

@@ -5,6 +5,8 @@ import com.school.app.ims.domain.institution.Institution;
 import reactor.core.publisher.Flux;
 import reactor.core.publisher.Mono;
 
+import java.util.Optional;
+
 public interface ServiceApi {
 
     public interface IMSGroupService {
@@ -12,6 +14,8 @@ public interface ServiceApi {
         Mono<InstitutionGroup> findImsGroupById(String groupId);
 
         Flux<InstitutionGroup> findInstitutionGroupForProfile(String profileId);
+
+        Mono<InstitutionGroup> createImsGroup(InstitutionGroup group);
     }
 
     public interface InstitutionService {
@@ -19,5 +23,7 @@ public interface ServiceApi {
         Mono<Institution> findInstitutionById(String groupId);
 
         Flux<Institution> findInstitutionForProfile(String profileId);
+
+        Mono<Institution> createInstitution(Institution institution);
     }
 }

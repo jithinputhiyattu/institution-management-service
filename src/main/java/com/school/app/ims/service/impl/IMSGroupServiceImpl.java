@@ -25,12 +25,18 @@ public class IMSGroupServiceImpl implements ServiceApi.IMSGroupService {
     public Mono<InstitutionGroup> findImsGroupById(String groupId) {
         return repository
                 .findById(groupId).map(institutionGroupDto ->
-                        mapper.toInstitutionGroupResponse(institutionGroupDto))
+                        mapper.toInstitutionGroup(institutionGroupDto))
                 .switchIfEmpty(Mono.defer(() -> Mono.just(new InstitutionGroup())));
     }
 
     @Override
     public Flux<InstitutionGroup> findInstitutionGroupForProfile(String profileId) {
         return Flux.empty();
+    }
+
+    @Override
+    public Mono<InstitutionGroup> createImsGroup(InstitutionGroup group) {
+        return repository.save(mapper.toInstitutionGroupDto(group))
+           .map(mapper::toInstitutionGroup);
     }
 }

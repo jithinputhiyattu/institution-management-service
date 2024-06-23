@@ -8,6 +8,7 @@ import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
+import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RestController;
@@ -35,14 +36,22 @@ public class IMSGroupController {
         });
     }
 
+    @RequestMapping(method = RequestMethod.POST)
+    public Mono<ResponseEntity<InstitutionGroup>> createImsGroup(@RequestBody InstitutionGroup group) {
+        log.info("IMSGroupController:createImsGroup Request: {} ", group);
+        return  imsGroupService.createImsGroup(group).map(igs -> {
+            log.info("IMSGroupController:createImsGroup Response: {} ", igs);
+            return ResponseEntity.status(HttpStatus.OK).body(igs);
+        });
+    }
+
     @RequestMapping(value = "using-profile-id", method = RequestMethod.GET)
-    public Flux<ResponseEntity<InstitutionGroupResponse>> findInstitutionGroupForProfile(String profileId) {
-//        log.info("IMSGroupController:findInstitutionGroupForProfile Request: {} ", profileId);
-//        return  imsGroupService.findInstitutionGroupForProfile(profileId).map(institutionGroup -> {
-//            InstitutionGroupResponse igs = imsGroupMapper.toInstitutionGroupResponse(institutionGroup);
-//            log.info("IMSGroupController:findInstitutionGroupForProfile Response: {} ", igs);
-//            return ResponseEntity.ok(igs);
-//        });
-        return null;
+    public Flux<ResponseEntity<InstitutionGroup>> findInstitutionGroupForProfile(String profileId) {
+        log.info("IMSGroupController:findInstitutionGroupForProfile Request: {} ", profileId);
+        return  imsGroupService.findInstitutionGroupForProfile(profileId).map(group -> {
+            log.info("IMSGroupController:findInstitutionGroupForProfile Response: {} ", group);
+            return ResponseEntity.ok(group);
+        });
+
     }
 }
