@@ -1,26 +1,24 @@
-package com.school.app.ims.infra.cosmos;
+package com.school.app.ims.infra.db;
 
-
-
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import lombok.Getter;
 import lombok.Setter;
 import lombok.ToString;
-import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
-import com.azure.spring.data.cosmos.core.mapping.Container;
-import com.azure.spring.data.cosmos.core.mapping.PartitionKey;
 import org.springframework.data.annotation.Id;
+import org.springframework.data.mongodb.core.mapping.Document;
+import org.springframework.data.mongodb.core.mapping.Sharded;
 
 @Getter
 @Setter
 @ToString
 @JsonIgnoreProperties(ignoreUnknown = true)
-@Container(containerName = "Institution")
+@Document(collection = "Institution")
+@Sharded(shardKey = {"institutionKey"})
 public class InstitutionDto {
 
     @Id
     String institutionId;
 
-    @PartitionKey
     String institutionKey;
 
     AddressDto address;

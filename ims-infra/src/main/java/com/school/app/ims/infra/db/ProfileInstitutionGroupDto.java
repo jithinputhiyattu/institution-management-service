@@ -1,13 +1,12 @@
-package com.school.app.ims.infra.cosmos;
+package com.school.app.ims.infra.db;
 
-
-import com.azure.spring.data.cosmos.core.mapping.Container;
-import com.azure.spring.data.cosmos.core.mapping.PartitionKey;
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import lombok.Getter;
 import lombok.Setter;
 import lombok.ToString;
 import org.springframework.data.annotation.Id;
+import org.springframework.data.mongodb.core.mapping.Document;
+import org.springframework.data.mongodb.core.mapping.Sharded;
 
 import java.util.List;
 
@@ -15,13 +14,13 @@ import java.util.List;
 @Setter
 @ToString
 @JsonIgnoreProperties(ignoreUnknown = true)
-@Container(containerName = "ProfileInstitution")
+@Document(collection = "ProfileInstitutionGroup")
+@Sharded(shardKey = {"profileKey"})
 public class ProfileInstitutionGroupDto {
 
     @Id
     String profileId;
 
-    @PartitionKey
     String profileKey;
 
     List<ProfileRoleDto> institutionGroups;

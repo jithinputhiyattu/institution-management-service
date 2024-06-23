@@ -1,4 +1,4 @@
-package com.school.app.ims.infra.cosmos;
+package com.school.app.ims.infra.db;
 
 import lombok.Getter;
 import lombok.Setter;
