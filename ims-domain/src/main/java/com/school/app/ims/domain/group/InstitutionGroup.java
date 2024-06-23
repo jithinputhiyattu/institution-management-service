@@ -8,4 +8,11 @@ import lombok.Setter;
 public class InstitutionGroup {
 
     String groupId;
+
+    String name;
+
+    String moto;
+
+    Address address;
+
 }

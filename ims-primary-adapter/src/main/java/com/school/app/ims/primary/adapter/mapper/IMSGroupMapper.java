@@ -7,7 +7,6 @@ import org.mapstruct.Mapping;
 import org.springframework.stereotype.Service;
 
 @Mapper(componentModel = "spring")
-@Service
 public interface IMSGroupMapper {
 
     @Mapping(target = "groupId", source = "groupId")
