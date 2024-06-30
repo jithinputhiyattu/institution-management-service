@@ -1,11 +1,10 @@
 package com.school.app.ims.service;
 
 import com.school.app.ims.domain.InstitutionGroup;
-import com.school.app.ims.domain.institution.Institution;
+import com.school.app.ims.domain.InstitutionRole;
+import com.school.app.ims.domain.Institution;
 import reactor.core.publisher.Flux;
 import reactor.core.publisher.Mono;
-
-import java.util.Optional;
 
 public interface ServiceApi {
 
@@ -25,5 +24,12 @@ public interface ServiceApi {
         Flux<Institution> findInstitutionForProfile(String profileId);
 
         Mono<Institution> createInstitution(Institution institution);
+    }
+
+    public interface InstitutionRoleService {
+
+        Mono<InstitutionRole> createRole(InstitutionRole institutionRole);
+
+        Mono<InstitutionRole> updateRole(InstitutionRole institutionRole);
     }
 }

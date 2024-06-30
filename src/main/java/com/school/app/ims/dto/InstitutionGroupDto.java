@@ -10,9 +10,6 @@ import org.springframework.data.mongodb.core.mapping.Sharded;
 @Data
 @EqualsAndHashCode(callSuper = true)
 @JsonIgnoreProperties(ignoreUnknown = true)
-@Getter
-@Setter
-@ToString
 @Document(collection = "InstitutionGroup")
 @Sharded(shardKey = {"groupKey"})
 public class InstitutionGroupDto extends Audit {

@@ -1,8 +1,7 @@
 package com.school.app.ims.controller;
 
-import com.school.app.ims.domain.institution.Institution;
+import com.school.app.ims.domain.Institution;
 import com.school.app.ims.mapper.InstitutionMapper;
-import com.school.app.ims.model.response.InstitutionResponseModel;
 import com.school.app.ims.service.ServiceApi;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.http.ResponseEntity;
