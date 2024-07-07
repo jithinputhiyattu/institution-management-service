@@ -1,15 +1,11 @@
-package com.school.app.ims.domain;
+package com.school.app.ims.model.request;
 
-import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import com.school.app.ims.enums.RoleStatus;
 import com.school.app.ims.enums.UserRoles;
 import lombok.Data;
 
 @Data
-@JsonIgnoreProperties(ignoreUnknown = true)
-public class InstitutionRole {
-
-    private String id;
+public class InstitutionRolePostRequestModel {
     private String institutionId;
     private String institutionGroupId;
     private String userId;

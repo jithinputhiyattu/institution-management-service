@@ -2,7 +2,6 @@ package com.school.app.ims.controller;
 
 import com.school.app.ims.domain.InstitutionGroup;
 import com.school.app.ims.mapper.IMSGroupMapper;
-import com.school.app.ims.model.response.InstitutionGroupResponse;
 import com.school.app.ims.service.ServiceApi;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
